@@ -48,6 +48,7 @@ button {
 #network,
 #cpu,
 #memory,
+#bluetooth,
 #custom-lock,
 #custom-power,
 #custom-weather,
@@ -69,6 +70,10 @@ button {
 }
 
 #battery {
+  color: #a6d189;
+}
+
+#bluetooth {
   color: #a6d189;
 }
 
