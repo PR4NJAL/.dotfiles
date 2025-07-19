@@ -6,6 +6,9 @@ return {
 		ensure_installed = {
 			"bash",
 			"c",
+			"javascript",
+			"json",
+			"typescript",
 			"diff",
 			"html",
 			"lua",
@@ -15,6 +18,7 @@ return {
 			"query",
 			"vim",
 			"vimdoc",
+			"tsx",
 		},
 		auto_install = true,
 		highlight = {
@@ -23,4 +27,6 @@ return {
 		},
 		indent = { enable = true, disable = { "ruby" } },
 	},
+	{ "nvim-treesitter/nvim-treesitter-context" },
+	{ "nvim-treesitter/nvim-treesitter-textobjects" },
 }
