@@ -52,11 +52,11 @@ return {
 			}))
 		end, { desc = "[/] Fuzzily search in current buffer" })
 
-		vim.keymap.set("n", "<leader>s/", function()
+		vim.keymap.set("n", "<leader>f/", function()
 			builtin.live_grep({
 				grep_open_files = true,
 			})
-		end, { desc = "[S]earch [/] in Open Files" })
+		end, { desc = "[F]ind [/] in Open Files" })
 
 		vim.keymap.set("n", "<leader>fn", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })

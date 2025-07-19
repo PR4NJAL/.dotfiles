@@ -28,10 +28,14 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 
 vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.o.inccommand = "split"
 
 vim.o.cursorline = true
 
 vim.o.confirm = true
+
+vim.o.expandtab = true
+
+vim.o.tabstop = 2
