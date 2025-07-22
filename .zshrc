@@ -7,10 +7,16 @@ fi
 
 source "${ZINIT_HOME}/zinit.zsh"
 
-zinit light zsh-users/zsh-syntax-highlighting
+zinit ice wait lucid
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit ice wait lucid
 zinit light zsh-users/zsh-completions
+zinit ice wait lucid
 zinit light zsh-users/zsh-autosuggestions
+zinit ice wait lucid
 zinit light Aloxaf/fzf-tab
+zinit ice wait lucid
+zinit light zdharma-continuum/history-search-multi-word
 
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
@@ -47,8 +53,10 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls="eza"
 alias cat="bat"
 alias grep="rg"
+alias find="fd"
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(rbenv init -)"
 
 . /usr/share/nvm/init-nvm.sh
