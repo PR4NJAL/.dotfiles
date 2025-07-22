@@ -26,7 +26,17 @@ return {
 			additional_vim_regex_highlighting = { "ruby" },
 		},
 		indent = { enable = true, disable = { "ruby" } },
+		incremental_selection = {
+			enable = true,
+			keymaps = {
+				init_selection = "tnn",
+				node_incremental = "trn",
+				scope_incremental = "trc",
+				node_decremental = "trm",
+			},
+		},
 	},
 	{ "nvim-treesitter/nvim-treesitter-context" },
 	{ "nvim-treesitter/nvim-treesitter-textobjects" },
+	{ "nvim-treesitter/playground" },
 }
