@@ -54,9 +54,12 @@ alias ls="eza"
 alias cat="bat"
 alias grep="rg"
 alias find="fd"
+alias lg="lazygit"
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(rbenv init -)"
 
+export EDITOR="nvim"
+export XDG_DATA_DIRS=$HOME/.nix-profile/share:$XDG_DATA_DIRS
 . /usr/share/nvm/init-nvm.sh

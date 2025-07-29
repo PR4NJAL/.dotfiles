@@ -22,7 +22,7 @@ return {
 					i = { ["<c-enter>"] = "to_fuzzy_refine" },
 				},
 			},
-			pickers = {},
+			pickers = { Snacks.picker },
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),

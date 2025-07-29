@@ -22,8 +22,8 @@ return {
 				map("gri", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
 				map("grd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 				map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-				map("gO", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
-				map("gW", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Open Workspace Symbols")
+				map("gO", require("telescope.builtin").lsp_document_symbols, "[O]pen Document Symbols")
+				map("gW", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Open [W]orkspace Symbols")
 				map("grt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
 
 				---@param client vim.lsp.Client
@@ -116,6 +116,7 @@ return {
 			hyprls = {},
 			qmlls = {},
 			-- rust_analyzer = {},
+			prettier = {},
 			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 			--
 			-- Some languages (like typescript) have entire language plugins that can be useful:
@@ -123,11 +124,10 @@ return {
 			--
 			-- But for many setups, the LSP (`ts_ls`) will work just fine
 			ts_ls = {},
-			vtsls = {},
 			lua_ls = {
 				-- cmd = { ... },
 				-- filetypes = { ... },
-				-- capabilities = {},
+				capabilities = {},
 				settings = {
 					Lua = {
 						completion = {

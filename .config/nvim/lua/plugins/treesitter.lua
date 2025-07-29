@@ -23,9 +23,9 @@ return {
 		auto_install = true,
 		highlight = {
 			enable = true,
-			additional_vim_regex_highlighting = { "ruby" },
+			additional_vim_regex_highlighting = {},
 		},
-		indent = { enable = true, disable = { "ruby" } },
+		indent = { enable = true, disable = {} },
 		incremental_selection = {
 			enable = true,
 			keymaps = {
@@ -38,5 +38,4 @@ return {
 	},
 	{ "nvim-treesitter/nvim-treesitter-context" },
 	{ "nvim-treesitter/nvim-treesitter-textobjects" },
-	{ "nvim-treesitter/playground" },
 }

@@ -37,9 +37,9 @@ return {
 			},
 		},
 		spec = {
-			{ "<leader>s", group = "[S]earch" },
+			{ "<leader>se", group = "[Se]arch" },
 			{ "<leader>t", group = "[T]oggle" },
-			{ "<leader>u", group = "Git [H]unk", mode = { "n", "v" } },
+			{ "<leader>u", group = "Git H[u]nk", mode = { "n", "v" } },
 		},
 	},
 }
