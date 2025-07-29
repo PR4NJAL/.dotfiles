@@ -15,7 +15,7 @@ return {
 	opts = {
 		notify_on_error = false,
 		format_on_save = function(bufnr)
-			local disable_filetypes = { c = true, cpp = true }
+			local disable_filetypes = {}
 			if disable_filetypes[vim.bo[bufnr].filetype] then
 				return nil
 			else
@@ -29,6 +29,8 @@ return {
 			lua = { "stylua" },
 			python = { "isort", "black" },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
+			go = { "goimports", "gofmt" },
+			rust = { "rustfmt", lsp_format = "fallback" },
 		},
 	},
 }
