@@ -11,4 +11,7 @@ return {
 		disable_inline_completion = vim.g.ai_cmp,
 		ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
 	},
+	keys = {
+		{ "<leader>st", "<cmd>SupermavenToggle<cr>", desc = "Toggle Supermaven" },
+	},
 }

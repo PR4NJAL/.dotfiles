@@ -1,8 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
---vim.keymap.set("n", "<leader>e", "<cmd>Ex<CR>", { desc = "This is temporary" })
-
 vim.keymap.set("n", "<ESC>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
@@ -25,6 +23,5 @@ vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
 vim.keymap.set("n", "<leader>M", "<cmd>Mason<CR>")
-vim.keymap.set("n", "<leader>TT", "<cmd>TSInstallInfo<CR>")
-vim.keymap.set("n", "<leader>Tt", "<cmd>InspectTree<CR>")
+vim.keymap.set("n", "<leader>T", "<cmd>InspectTree<CR>")
 vim.keymap.set("n", "<leader>L", "<cmd>Lazy<CR>")

@@ -66,7 +66,7 @@ return {
 			},
 		},
 
-		snippets = { preset = "mini_snippets" },
+		snippets = { preset = "luasnip" },
 
 		fuzzy = { implementation = "lua" },
 

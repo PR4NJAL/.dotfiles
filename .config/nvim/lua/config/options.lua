@@ -39,3 +39,9 @@ vim.o.confirm = true
 vim.o.expandtab = true
 
 vim.o.tabstop = 2
+
+vim.opt.shiftwidth = 2
+
+vim.o.laststatus = 3
+
+vim.o.wrap = true

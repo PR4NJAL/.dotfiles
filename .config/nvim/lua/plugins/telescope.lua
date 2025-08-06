@@ -2,7 +2,7 @@ return {
 	"nvim-telescope/telescope.nvim",
 	event = "VimEnter",
 	dependencies = {
-		"nvim-lua/plenary.nvim",
+		{ "nvim-lua/plenary.nvim", lazy = true },
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 
@@ -22,7 +22,7 @@ return {
 					i = { ["<c-enter>"] = "to_fuzzy_refine" },
 				},
 			},
-			pickers = { Snacks.picker },
+			pickers = {},
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
