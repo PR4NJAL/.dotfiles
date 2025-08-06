@@ -8,8 +8,6 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 zinit ice wait lucid
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit ice wait lucid
 zinit light zsh-users/zsh-completions
 zinit ice wait lucid
 zinit light zsh-users/zsh-autosuggestions
@@ -17,6 +15,8 @@ zinit ice wait lucid
 zinit light Aloxaf/fzf-tab
 zinit ice wait lucid
 zinit light zdharma-continuum/history-search-multi-word
+zinit ice wait lucid
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
@@ -55,11 +55,15 @@ alias cat="bat"
 alias grep="rg"
 alias find="fd"
 alias lg="lazygit"
-
-eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(rbenv init -)"
+alias top="htop"
+alias ping="prettyping"
+alias cht="cht.sh"
 
 export EDITOR="nvim"
 export XDG_DATA_DIRS=$HOME/.nix-profile/share:$XDG_DATA_DIRS
 . /usr/share/nvm/init-nvm.sh
+export GEM_HOME="$(gem env user_gemhome)"
+export PATH="$PATH:$GEM_HOME/bin"
+
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
