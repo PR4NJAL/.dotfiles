@@ -7,9 +7,12 @@ return {
 	},
 	keys = {
 		{ "<leader>r", "", desc = "+refactor", mode = { "n", "v" } },
+		--TODO: Check the below keymap
 		{
 			"<leader>rs",
-			pick,
+			function()
+				require("telescope").extensions.refactoring.refactors()
+			end,
 			mode = "v",
 			desc = "Refactor",
 		},

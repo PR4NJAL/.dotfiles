@@ -31,6 +31,7 @@ return {
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			go = { "goimports", "gofmt" },
 			rust = { "rustfmt", lsp_format = "fallback" },
+			html = { "prettierd", "prettier", stop_after_first = true },
 		},
 	},
 }
