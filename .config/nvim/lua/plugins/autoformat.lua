@@ -1,15 +1,16 @@
 return {
 	"stevearc/conform.nvim",
+	lazy = true,
 	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
 	keys = {
 		{
-			"<leader>auf",
+			"<leader>af",
 			function()
 				require("conform").format({ async = true, lsp_format = "fallback" })
 			end,
 			mode = "",
-			desc = "[Au]to [F]ormat buffer",
+			desc = "[A]uto [F]ormat buffer",
 		},
 	},
 	opts = {
@@ -30,7 +31,7 @@ return {
 			python = { "isort", "black" },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			go = { "goimports", "gofmt" },
-			rust = { "rustfmt", lsp_format = "fallback" },
+			-- rust = { "rustfmt", lsp_format = "fallback" },
 			html = { "prettierd", "prettier", stop_after_first = true },
 		},
 	},

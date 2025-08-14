@@ -11,6 +11,7 @@ return {
 			"typescript",
 			"diff",
 			"html",
+			"css",
 			"lua",
 			"luadoc",
 			"markdown",
@@ -19,6 +20,8 @@ return {
 			"vim",
 			"vimdoc",
 			"tsx",
+			"typescript",
+			"hyprlang",
 		},
 		auto_install = true,
 		highlight = {

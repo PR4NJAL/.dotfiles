@@ -2,12 +2,9 @@ return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
-
 		"nvim-neotest/nvim-nio",
-
 		"mason-org/mason.nvim",
 		"jay-babu/mason-nvim-dap.nvim",
-
 		"leoluz/nvim-dap-go",
 	},
 	keys = {
@@ -67,9 +64,7 @@ return {
 
 		require("mason-nvim-dap").setup({
 			automatic_installation = true,
-
 			handlers = {},
-
 			ensure_installed = {
 				"delve",
 			},

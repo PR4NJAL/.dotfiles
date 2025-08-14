@@ -4,11 +4,28 @@ return {
 		{ "mason-org/mason.nvim", opts = {} },
 		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		{ "j-hui/fidget.nvim", opts = {} },
+		{
+			"j-hui/fidget.nvim",
+			opts = {
+				progress = {
+					suppress_on_insert = false,
+					display = {
+						done_ttl = 3,
+						progress_ttl = math.huge,
+						done_icon = "✓",
+					},
+				},
+				notification = {
+					window = {
+						winblend = 0,
+					},
+				},
+			},
+		},
 		"saghen/blink.cmp",
 	},
 	config = function()
-		vim.api.nvim_create_autocmd("LSPAttach", {
+		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 			callback = function(event)
 				local map = function(keys, func, desc, mode)
@@ -115,6 +132,8 @@ return {
 			dockerls = {},
 			hyprls = {},
 			qmlls = {},
+			html = {},
+			cssls = {},
 			-- rust_analyzer = {},
 			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 			--
@@ -142,15 +161,15 @@ return {
 			"stylua",
 			"prettierd",
 			"prettier",
-			"eslint_d",
-			"eslint",
 			"jsonlint",
 			"yamllint",
 			"shellcheck",
 			"isort",
 			"black",
 			"goimports",
-			"rustfmt",
+			-- "rustfmt",
+			"html",
+			"cssls",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
