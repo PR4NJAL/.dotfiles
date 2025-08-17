@@ -75,6 +75,8 @@ aliases=(
     [grep]="rg"
     [find]="fd"
     [lg]="lazygit"
+    [ld]="lazydocker"
+    [lo]="lazyollama"
     [top]="htop"
     [ping]="prettyping"
     [cht]="cht.sh"
@@ -89,8 +91,9 @@ done
 export EDITOR="nvim"
 export XDG_DATA_DIRS="$HOME/.nix-profile/share:$XDG_DATA_DIRS"
 export GEM_HOME="$(gem env user_gemhome)"
-PATH="$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export PATH="$PATH:$GEM_HOME/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 . /usr/share/nvm/init-nvm.sh
 
 eval_if_exists fzf --zsh
