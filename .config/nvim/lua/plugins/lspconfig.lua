@@ -130,8 +130,6 @@ return {
 			gopls = {},
 			pyright = {},
 			dockerls = {},
-			hyprls = {},
-			qmlls = {},
 			html = {},
 			cssls = {},
 			rust_analyzer = {},

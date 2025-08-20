@@ -45,3 +45,5 @@ vim.opt.shiftwidth = 2
 vim.o.laststatus = 3
 
 vim.o.wrap = true
+
+vim.o.scrolloff = 10
