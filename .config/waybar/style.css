@@ -1,6 +1,6 @@
 * {
   font-family: JetbrainsMono Nerd Font;
-  font-size: 12.5px; 
+  font-size: 12.5px;
   min-height: 0;
   padding-right: 2px;
   padding-left: 2px;
@@ -52,7 +52,8 @@ button {
 #custom-lock,
 #custom-power,
 #custom-weather,
-#custom-docker {
+#custom-docker,
+#mpd {
   background-color: #101010;
   padding: 0.5rem 1rem;
   margin: 5px 0;
@@ -135,29 +136,36 @@ button {
 }
 
 #custom-weather.clear {
-  color: #e5c890; /* Sunny yellow */
+  color: #e5c890;
+  /* Sunny yellow */
 }
 
 #custom-weather.cloud {
-  color: #99d1db; /* Light blue */
+  color: #99d1db;
+  /* Light blue */
 }
 
 #custom-weather.rain {
-  color: #8caaee; /* Blue */
+  color: #8caaee;
+  /* Blue */
 }
 
 #custom-weather.snow {
-  color: #c6d0f5; /* White-ish */
+  color: #c6d0f5;
+  /* White-ish */
 }
 
 #custom-weather.thunder {
-  color: #ca9ee6; /* Purple */
+  color: #ca9ee6;
+  /* Purple */
 }
 
 #custom-weather.fog {
-  color: #b0b4bc; /* Gray */
+  color: #b0b4bc;
+  /* Gray */
 }
 
 #custom-weather.error {
-  color: #e78284; /* Red */
+  color: #e78284;
+  /* Red */
 }
