@@ -10,8 +10,8 @@
     "bluetooth",
     "battery",
     "network",
-    "custom/docker",
-//    "tray",
+    // "custom/docker",
+    "tray",
     "custom/lock",
     "custom/power"
   ],
