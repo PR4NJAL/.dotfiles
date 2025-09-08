@@ -53,7 +53,7 @@ button {
 #custom-power,
 #custom-weather,
 #custom-docker,
-#mpd {
+#custom-pacman {
   background-color: #101010;
   padding: 0.5rem 1rem;
   margin: 5px 0;
@@ -168,4 +168,9 @@ button {
 #custom-weather.error {
   color: #e78284;
   /* Red */
+}
+
+#custom-pacman {
+  border-radius: 5px;
+  margin-left: 5px;
 }
