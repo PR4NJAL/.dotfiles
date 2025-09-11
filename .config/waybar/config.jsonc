@@ -1,17 +1,20 @@
 {
   "layer": "top",
   "position": "top",
-  "modules-left": ["hyprland/workspaces","cpu","memory","custom/pacman"],
+  "modules-left": ["hyprland/workspaces","cpu","memory"],
 
-  "modules-center": ["clock","custom/weather"],
+  "modules-center": ["clock"
+    //"custom/weather"
+  ],
 
   "modules-right": [
+    "custom/pacman",
     "pulseaudio",
     "bluetooth",
     "battery",
     "network",
     // "custom/docker",
-    "tray",
+    //"tray",
     "custom/lock",
     "custom/power"
   ],
