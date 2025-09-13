@@ -6,11 +6,11 @@
 
   gruv4: #fbf1c7;
   gruv5: #f4e8be;
-  gruv6: #eee0b7;
+  gruv6: #99d1db;
 
   gruv7: #a89984;
   gruv8: #928374;
-  gruv9: #7c6f64;
+  gruv9: #babbf1;
   gruv10: #504945;
   red: #ea6962;
 
@@ -25,7 +25,7 @@
   foreground: @gruv9;
   background-color: transparent;
 
-  highlight: underline bold #eee0b7;
+  highlight: underline bold #99d1db;
 
   transparent: #101010;
 }

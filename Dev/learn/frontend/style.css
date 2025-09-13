@@ -1,0 +1,44 @@
+h1 {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid black;
+  background-color: honeydew;
+  border-radius: 1px;
+  margin: 10px 10px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  padding: 5px 10px;
+  border: 1px solid black;
+  background-color: honeydew;
+  border-radius: 1px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.image {
+  display: block;
+  text-align: center;
+  padding: 0;
+  border: 1px solid black;
+  margin-top: 5px;
+}
+
+.about {
+  border: 1px solid black;
+  margin-top: 5px;
+  padding: 20px;
+}
+
+.project {
+  border: 1px solid black;
+  margin-top: 5px;
+  padding: 20px;
+}
