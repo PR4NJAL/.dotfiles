@@ -94,6 +94,7 @@ export GEM_HOME="$(gem env user_gemhome)"
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.config/emacs/bin"
 . /usr/share/nvm/init-nvm.sh
 
 eval_if_exists fzf --zsh
