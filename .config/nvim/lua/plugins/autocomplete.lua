@@ -28,10 +28,7 @@ return {
 		{ "dmitmel/cmp-digraphs" },
 		{ "folke/lazydev.nvim" },
 		{ "supermaven-nvim" },
-		{ "echasnovski/mini.snippets", opts = {} },
 	},
-	--- @module 'blink.cmp'
-	--- @type blink.cmp.Config
 	opts = {
 		keymap = {
 			preset = "default",

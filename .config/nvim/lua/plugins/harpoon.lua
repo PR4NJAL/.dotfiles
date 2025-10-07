@@ -1,5 +1,6 @@
 return {
 	"ThePrimeagen/harpoon",
+	{ "plenary.nvim", lazy = false },
 	branch = "harpoon2",
 	opts = {
 		menu = {
