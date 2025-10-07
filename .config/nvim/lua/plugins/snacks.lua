@@ -17,6 +17,8 @@ return {
 		scroll = { enabled = false },
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
+		dim = { enabled = true },
+		git = { enabled = true },
 	},
 	keys = {
 		{
