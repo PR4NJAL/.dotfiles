@@ -347,7 +347,6 @@ return {
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "VeryLazy",
 			callback = function()
-				-- Setup some globals for debugging (lazy-loaded)
 				_G.dd = function(...)
 					Snacks.debug.inspect(...)
 				end
@@ -355,7 +354,6 @@ return {
 					Snacks.debug.backtrace()
 				end
 
-				-- Override print to use snacks for `:=` command
 				if vim.fn.has("nvim-0.11") == 1 then
 					vim._print = function(_, ...)
 						dd(...)
@@ -364,7 +362,6 @@ return {
 					vim.print = _G.dd
 				end
 
-				-- Create some toggle mappings
 				Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>ts")
 				Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>tw")
 				Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>tL")
