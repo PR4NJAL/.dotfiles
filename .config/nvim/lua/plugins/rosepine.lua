@@ -1,8 +1,22 @@
+-- return {
+--   "rose-pine/neovim",
+--   priority = 1000,
+--   name = "rose-pine",
+--   config = function()
+--     vim.cmd("colorscheme rose-pine")
+--   end,
+-- }
+
 return {
-  "rose-pine/neovim",
+  "folke/tokyonight.nvim",
   priority = 1000,
-  name = "rose-pine",
   config = function()
-    vim.cmd("colorscheme rose-pine")
+    ---@diagnostic disable-next-line: missing-fields
+    require("tokyonight").setup({
+      styles = {
+        comments = { italic = false }, -- Disable italics in comments
+      },
+    })
+    vim.cmd.colorscheme("tokyonight-night")
   end,
 }

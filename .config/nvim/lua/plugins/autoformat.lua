@@ -27,10 +27,12 @@ return {
       end
     end,
     formatters_by_ft = {
+      lua = { "stylua" },
       -- python = { "isort", "black" },
+      -- javascript = { "prettierd", "prettier", stop_after_first = true },
       -- go = { "goimports", "gofmt" },
-      rust = { "rustfmt", lsp_format = "fallback" },
-      html = { "prettierd", "prettier", stop_after_first = true },
+      -- rust = { "rustfmt", lsp_format = "fallback" },
+      -- html = { "prettierd", "prettier", stop_after_first = true },
     },
   },
 }
