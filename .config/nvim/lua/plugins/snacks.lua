@@ -3,13 +3,13 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
-    bigfile = { enabled = false },
+    bigfile = { enabled = true },
     dashboard = { enabled = false },
     explorer = { enabled = true },
     indent = { enabled = true },
     input = { enabled = false },
     notifier = {
-      enabled = false,
+      enabled = true,
     },
     picker = { enabled = true },
     quickfile = { enabled = true },
@@ -254,7 +254,7 @@ return {
       desc = "References",
     },
     {
-      "gI",
+      "gi",
       function()
         Snacks.picker.lsp_implementations()
       end,
