@@ -96,7 +96,9 @@ export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.config/emacs/bin"
+export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin:$PATH"
 . /usr/share/nvm/init-nvm.sh
 
 eval_if_exists fzf --zsh
 eval_if_exists zoxide init --cmd cd zsh
+eval "$(tmuxifier init -)"

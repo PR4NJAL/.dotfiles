@@ -54,6 +54,7 @@ return {
 
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		local servers = {
+			nil_ls = {},
 			-- clangd = {},
 			-- gopls = {},
 			-- pyright = {},
@@ -78,6 +79,7 @@ return {
 		}
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
+			"nixfmt",
 			-- "prettierd",
 			-- "jsonlint",
 			-- "yamllint",
