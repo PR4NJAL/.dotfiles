@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Grok
+Exec=chromium --app=https://grok.com/
+Icon=grok
+Type=Application
+Categories=Utility;

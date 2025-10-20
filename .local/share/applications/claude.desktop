@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Claude
+Exec=chromium --app=https://claude.ai/new/
+Icon=claude
+Type=Application
+Categories=Utility;

@@ -62,7 +62,7 @@ return {
       -- pyright = {},
       -- dockerls = {},
       -- html = {},
-      -- cssls = {},
+      cssls = {},
       -- rust_analyzer = {},
       -- ts_ls = {},
       lua_ls = {
@@ -82,7 +82,7 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       "nixfmt",
-      -- "prettierd",
+      "prettier",
       -- "jsonlint",
       -- "yamllint",
       -- "shellcheck",
@@ -90,8 +90,6 @@ return {
       -- "black",
       -- "goimports",
       -- "rustfmt",
-      -- "html",
-      -- "cssls",
     })
     require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
