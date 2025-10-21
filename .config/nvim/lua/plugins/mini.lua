@@ -4,7 +4,7 @@ return {
 	config = function()
 		require("mini.ai").setup({ n_lines = 500 })
 		require("mini.surround").setup()
-    require("mini.icons").setup()
+		require("mini.icons").setup()
 		require("mini.move").setup()
 		require("mini.pairs").setup({
 			skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
@@ -33,11 +33,9 @@ return {
 				hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
 			},
 		})
-		local statusline = require("mini.statusline")
-		statusline.setup({ use_icons = vim.g.have_nerd_font })
-		---@diagnostic disable-next-line: duplicate-set-field
-		statusline.section_location = function()
-			return "%2l:%-2v"
-		end
+		require("mini.files").setup()
 	end,
+	keys = {
+		{ "<leader>-", "<CMD>lua MiniFiles.open()<CR>", desc = "Open Oil" },
+	},
 }

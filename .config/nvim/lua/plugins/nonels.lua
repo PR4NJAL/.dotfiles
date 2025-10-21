@@ -13,6 +13,6 @@ return {
 		})
 	end,
 	keys = {
-		{ "<leader>af", "<CMD>lua vim.lsp.buf.format({async = true})<CR>", desc = "Autoformat current buffer" },
+		{ "<leader>af", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", desc = "Autoformat current buffer" },
 	},
 }

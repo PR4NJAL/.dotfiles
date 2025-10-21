@@ -1,9 +1,18 @@
 return {
 	"neovim/nvim-lspconfig",
+	lazy = false,
 	dependencies = {
 		{ "mason-org/mason.nvim", opts = {} },
 		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		{
+			"nvimdev/lspsaga.nvim",
+			opts = {
+				symbol_in_winbar = {
+					enable = false,
+				},
+			},
+		},
 		{
 			"j-hui/fidget.nvim",
 			opts = {
@@ -51,23 +60,13 @@ return {
 				end,
 			},
 		})
-
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		local servers = {
 			nil_ls = {},
 			hyprls = {},
 			html = {},
-			-- clangd = {},
-			-- gopls = {},
-			-- pyright = {},
-			-- dockerls = {},
-			-- html = {},
 			cssls = {},
-			-- rust_analyzer = {},
-			-- ts_ls = {},
 			lua_ls = {
-				-- cmd = { ... },
-				-- filetypes = { ... },
 				capabilities = {},
 				settings = {
 					Lua = {
@@ -83,16 +82,8 @@ return {
 		vim.list_extend(ensure_installed, {
 			"nixfmt",
 			"prettier",
-			-- "jsonlint",
-			-- "yamllint",
-			-- "shellcheck",
-			-- "isort",
-			-- "black",
-			-- "goimports",
-			-- "rustfmt",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-
 		require("mason-lspconfig").setup({
 			ensure_installed = {},
 			automatic_installation = true,
@@ -106,4 +97,7 @@ return {
 			},
 		})
 	end,
+	keys = {
+		{ "<leader>o", "<CMD>Lspsaga outline<CR>", desc = "Toggle outline" },
+	},
 }
