@@ -1,13 +1,18 @@
 return {
-  "nvimtools/none-ls.nvim",
-  config = function()
-    local null_ls = require("null-ls")
-    null_ls.setup({
-      sources = {
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.nixfmt,
-        null_ls.builtins.formatting.prettier,
-      },
-    })
-  end,
+	"nvimtools/none-ls.nvim",
+	dependencies = { "nvim-lua/plenary.nvim", lazy = true },
+	event = { "BufWritePre" },
+	config = function()
+		local null_ls = require("null-ls")
+		null_ls.setup({
+			sources = {
+				null_ls.builtins.formatting.stylua,
+				null_ls.builtins.formatting.nixfmt,
+				null_ls.builtins.formatting.prettier,
+			},
+		})
+	end,
+	keys = {
+		{ "<leader>af", "<CMD>lua vim.lsp.buf.format({async = true})<CR>", desc = "Autoformat current buffer" },
+	},
 }

@@ -9,3 +9,5 @@ else
 fi
 
 hyprctl "keyword general:layout $new_layout"
+
+notify-send "Changed to $new_layout"
