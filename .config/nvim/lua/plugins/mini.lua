@@ -1,6 +1,5 @@
 return {
 	"echasnovski/mini.nvim",
-	dependencies = { "rafamadriz/friendly-snippets" },
 	config = function()
 		require("mini.ai").setup({ n_lines = 500 })
 		require("mini.surround").setup()
@@ -33,7 +32,15 @@ return {
 				hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
 			},
 		})
+		local statusline = require("mini.statusline")
+		statusline.setup({ use_icons = vim.g.have_nerd_font })
+		---@diagnostic disable-next-line: duplicate-set-field
+		statusline.section_location = function()
+			return "%2l:%-2v"
+		end
+    require("mini.tabline").setup()
 		require("mini.files").setup()
+		require("mini.git").setup()
 	end,
 	keys = {
 		{ "<leader>-", "<CMD>lua MiniFiles.open()<CR>", desc = "Open Oil" },

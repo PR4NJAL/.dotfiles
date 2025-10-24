@@ -3,6 +3,7 @@ return {
 	event = "VimEnter",
 	version = "1.*",
 	dependencies = {
+		{ "rafamadriz/friendly-snippets" },
 		{ "echasnovski/mini.nvim" },
 		{ "folke/lazydev.nvim" },
 	},

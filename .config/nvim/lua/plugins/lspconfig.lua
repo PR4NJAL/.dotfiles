@@ -3,16 +3,9 @@ return {
 	lazy = false,
 	dependencies = {
 		{ "mason-org/mason.nvim", opts = {} },
+    -- add lspsaga.nvim ???
 		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		{
-			"nvimdev/lspsaga.nvim",
-			opts = {
-				symbol_in_winbar = {
-					enable = false,
-				},
-			},
-		},
 		{
 			"j-hui/fidget.nvim",
 			opts = {
@@ -62,6 +55,7 @@ return {
 		})
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		local servers = {
+      clangd = {},
 			nil_ls = {},
 			hyprls = {},
 			html = {},
@@ -97,7 +91,4 @@ return {
 			},
 		})
 	end,
-	keys = {
-		{ "<leader>o", "<CMD>Lspsaga outline<CR>", desc = "Toggle outline" },
-	},
 }
