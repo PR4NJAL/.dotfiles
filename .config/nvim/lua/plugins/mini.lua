@@ -1,5 +1,6 @@
 return {
 	"echasnovski/mini.nvim",
+  event = "VimEnter",
 	config = function()
 		require("mini.ai").setup({ n_lines = 500 })
 		require("mini.surround").setup()
@@ -10,11 +11,6 @@ return {
 			skip_unbalanced = true,
 		})
 		require("mini.cursorword").setup()
-		require("mini.snippets").setup({
-			snippets = {
-				require("mini.snippets").gen_loader.from_lang(),
-			},
-		})
 		require("mini.diff").setup({
 			view = {
 				style = "sign",
@@ -38,7 +34,7 @@ return {
 		statusline.section_location = function()
 			return "%2l:%-2v"
 		end
-    require("mini.tabline").setup()
+		require("mini.tabline").setup()
 		require("mini.files").setup()
 		require("mini.git").setup()
 	end,

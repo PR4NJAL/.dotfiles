@@ -7,6 +7,9 @@ if [ ! -d "$ZINIT_HOME" ]; then
 fi
 source "${ZINIT_HOME}/zinit.zsh"
 
+zi ice pick"async.zsh" src"pure.zsh"
+zi light sindresorhus/pure
+
 zinit for \
     wait lucid \
   zsh-users/zsh-completions
@@ -28,14 +31,6 @@ zinit for \
     wait lucid \
     atload"zicompinit; zicdreplay" \
   zdharma-continuum/fast-syntax-highlighting
-
-zinit for \
-    as"command" \
-    from"gh-r" \
-    atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-    atpull"%atclone" \
-    src"init.zsh" \
-  starship/starship
 
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -102,3 +97,6 @@ export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin:$PATH"
 eval_if_exists fzf --zsh
 eval_if_exists zoxide init --cmd cd zsh
 eval "$(tmuxifier init -)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

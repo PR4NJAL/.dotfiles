@@ -3,7 +3,6 @@ return {
 	lazy = false,
 	dependencies = {
 		{ "mason-org/mason.nvim", opts = {} },
-    -- add lspsaga.nvim ???
 		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		{
@@ -55,7 +54,8 @@ return {
 		})
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		local servers = {
-      clangd = {},
+			rust_analyzer = {},
+			clangd = {},
 			nil_ls = {},
 			hyprls = {},
 			html = {},
