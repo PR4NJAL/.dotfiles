@@ -1,6 +1,6 @@
 return {
 	"echasnovski/mini.nvim",
-  event = "VimEnter",
+	event = "VimEnter",
 	config = function()
 		require("mini.ai").setup({ n_lines = 500 })
 		require("mini.surround").setup()
@@ -25,16 +25,17 @@ return {
 			highlighters = {
 				todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
 				note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
+				hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
 				hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
 			},
 		})
-		local statusline = require("mini.statusline")
-		statusline.setup({ use_icons = vim.g.have_nerd_font })
-		---@diagnostic disable-next-line: duplicate-set-field
-		statusline.section_location = function()
-			return "%2l:%-2v"
-		end
-		require("mini.tabline").setup()
+		-- local statusline = require("mini.statusline")
+		-- statusline.setup({ use_icons = vim.g.have_nerd_font })
+		-- ---@diagnostic disable-next-line: duplicate-set-field
+		-- statusline.section_location = function()
+		-- 	return "%2l:%-2v"
+		-- end
+		-- require("mini.tabline").setup()
 		require("mini.files").setup()
 		require("mini.git").setup()
 	end,

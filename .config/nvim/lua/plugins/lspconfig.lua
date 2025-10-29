@@ -5,6 +5,14 @@ return {
 		{ "mason-org/mason.nvim", opts = {} },
 		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+    {
+      "nvimdev/lspsaga.nvim",
+      opts = {
+        symbol_in_winbar = {
+          enable = false,
+        }
+      },
+    },
 		{
 			"j-hui/fidget.nvim",
 			opts = {
@@ -92,4 +100,7 @@ return {
 			},
 		})
 	end,
+  keys = {
+    {"<leader>o", "<CMD>Lspsaga outline<CR>", desc = "Toggle outline"},
+  },
 }

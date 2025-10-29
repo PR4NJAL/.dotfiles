@@ -20,5 +20,4 @@ return {
 		},
 		indent = { enable = true, disable = {} },
 	},
-	{ "nvim-treesitter/nvim-treesitter-context" },
 }
