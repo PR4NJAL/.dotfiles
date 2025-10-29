@@ -16,7 +16,7 @@ return {
 			documentation = { auto_show = true, auto_show_delay_ms = 500 },
 		},
 		sources = {
-			default = { "lsp", "path", "lazydev", "buffer" },
+			default = { "lsp", "path", "lazydev", "buffer", "omni" },
 			providers = {
 				lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
 			},
