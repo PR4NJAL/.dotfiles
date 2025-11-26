@@ -30,6 +30,8 @@ symbol = " "
 
 [directory]
 read_only = " 󰌾"
+truncate_to_repo = false
+truncation_length = 3
 
 [docker_context]
 symbol = " "
@@ -54,6 +56,7 @@ symbol = " "
 
 [git_branch]
 symbol = " "
+only_attached = true
 
 [git_commit]
 tag_symbol = '  '
@@ -198,3 +201,5 @@ symbol = " "
 
 [zig]
 symbol = " "
+
+scan_timeout = 10
