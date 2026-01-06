@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Deepseek
+Exec=chromium --app=https://chat.openai.com
+Icon=deepseek
+Type=Application
+Categories=Utility;

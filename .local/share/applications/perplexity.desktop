@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Perplexity
+Exec=chromium --app=https://www.perplexity.ai/
+Icon=perplexity
+Type=Application
+Categories=Utility;
