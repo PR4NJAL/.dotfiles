@@ -1,27 +1,66 @@
 return {
 	"folke/snacks.nvim",
+	dependencies = { "nvim-mini/mini.nvim" },
 	priority = 1000,
 	lazy = false,
 	opts = {
+		animate = { enabled = true },
 		bigfile = { enabled = true },
-		dashboard = { enabled = false },
+		dashboard = { enabled = true },
+		debug = { enabled = true },
+		dim = { enabled = true },
 		explorer = { enabled = true },
+		git = { enabled = true },
+		gitbrowse = { enabled = true },
 		image = { enabled = true },
 		indent = { enabled = true },
 		input = { enabled = true },
+		keymap = { enabled = true },
+		lazygit = { enabled = true },
 		notifier = {
 			enabled = true,
+			timeout = 3000,
 		},
+		notify = { enabled = true },
 		picker = { enabled = true },
 		quickfile = { enabled = true },
+		rename = { enabled = true },
 		scope = { enabled = true },
 		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
+		terminal = { enabled = true },
+		toggle = { enabled = true },
+		util = { enabled = true },
 		words = { enabled = true },
-		dim = { enabled = true },
-		git = { enabled = true },
+		zen = { enabled = true },
+		styles = {
+			notification = {
+				wo = { wrap = true },
+			},
+		},
 	},
 	keys = {
+		{
+			"<leader><space>",
+			function()
+				Snacks.picker.smart()
+			end,
+			desc = "Smart Find Files",
+		},
+		{
+			"<leader>bd",
+			function()
+				Snacks.bufdelete()
+			end,
+			desc = "Delete Current Buffer",
+		},
+		{
+			"<leader>fd",
+			function()
+				Snacks.picker.diagnostics()
+			end,
+			desc = "View Current Buffer Diagnostics",
+		},
 		{
 			"<leader>:",
 			function()
@@ -30,11 +69,25 @@ return {
 			desc = "Command History",
 		},
 		{
+			"<leader>n",
+			function()
+				Snacks.picker.notifications()
+			end,
+			desc = "Notification History",
+		},
+		{
 			"<leader>e",
 			function()
 				Snacks.explorer()
 			end,
 			desc = "File Explorer",
+		},
+		{
+			"<leader>fb",
+			function()
+				Snacks.picker.buffers()
+			end,
+			desc = "Buffers",
 		},
 		{
 			"<leader>fc",
@@ -63,6 +116,13 @@ return {
 				Snacks.picker.projects()
 			end,
 			desc = "Projects",
+		},
+		{
+			"<leader>fR",
+			function()
+				Snacks.picker.recent()
+			end,
+			desc = "Recent",
 		},
 		{
 			"<leader>gb",
@@ -100,13 +160,6 @@ return {
 			desc = "Git Stash",
 		},
 		{
-			"<leader>gd",
-			function()
-				Snacks.picker.git_diff()
-			end,
-			desc = "Git Diff (Hunks)",
-		},
-		{
 			"<leader>gf",
 			function()
 				Snacks.picker.git_log_file()
@@ -121,6 +174,13 @@ return {
 			desc = "Buffer Lines",
 		},
 		{
+			"<leader>fB",
+			function()
+				Snacks.picker.grep_buffers()
+			end,
+			desc = "Grep Open Buffers",
+		},
+		{
 			"<leader>fg",
 			function()
 				Snacks.picker.grep()
@@ -133,6 +193,13 @@ return {
 				Snacks.picker.registers()
 			end,
 			desc = "Registers",
+		},
+		{
+			"<leader>/",
+			function()
+				Snacks.picker.search_history()
+			end,
+			desc = "Search History",
 		},
 		{
 			"<leader>fa",
@@ -156,13 +223,6 @@ return {
 			desc = "Help Pages",
 		},
 		{
-			"<leader>fH",
-			function()
-				Snacks.picker.highlights()
-			end,
-			desc = "Highlights",
-		},
-		{
 			"<leader>fi",
 			function()
 				Snacks.picker.icons()
@@ -170,25 +230,11 @@ return {
 			desc = "Icons",
 		},
 		{
-			"<leader>fj",
-			function()
-				Snacks.picker.jumps()
-			end,
-			desc = "Jumps",
-		},
-		{
 			"<leader>fk",
 			function()
 				Snacks.picker.keymaps()
 			end,
 			desc = "Keymaps",
-		},
-		{
-			"<leader>fl",
-			function()
-				Snacks.picker.loclist()
-			end,
-			desc = "Location List",
 		},
 		{
 			"<leader>fm",
@@ -226,28 +272,28 @@ return {
 			desc = "Undo History",
 		},
 		{
-			"<leader>tC",
+			"<leader>fC",
 			function()
 				Snacks.picker.colorschemes()
 			end,
 			desc = "Colorschemes",
 		},
 		{
-			"gd",
+			"grd",
 			function()
 				Snacks.picker.lsp_definitions()
 			end,
 			desc = "Goto Definition",
 		},
 		{
-			"gD",
+			"grD",
 			function()
 				Snacks.picker.lsp_declarations()
 			end,
 			desc = "Goto Declaration",
 		},
 		{
-			"gr",
+			"grr",
 			function()
 				Snacks.picker.lsp_references()
 			end,
@@ -255,21 +301,42 @@ return {
 			desc = "References",
 		},
 		{
-			"gi",
+			"gri",
 			function()
 				Snacks.picker.lsp_implementations()
 			end,
 			desc = "Goto Implementation",
 		},
 		{
-			"gy",
+			"grt",
 			function()
 				Snacks.picker.lsp_type_definitions()
 			end,
 			desc = "Goto T[y]pe Definition",
 		},
 		{
-			"<leader>O",
+			"gai",
+			function()
+				Snacks.picker.lsp_incoming_calls()
+			end,
+			desc = "C[a]lls Incoming",
+		},
+		{
+			"gao",
+			function()
+				Snacks.picker.lsp_outgoing_calls()
+			end,
+			desc = "C[a]lls Outgoing",
+		},
+		{
+			"gO",
+			function()
+				Snacks.picker.lsp_symbols()
+			end,
+			desc = "LSP Symbols",
+		},
+		{
+			"gW",
 			function()
 				Snacks.picker.lsp_workspace_symbols()
 			end,
@@ -290,12 +357,11 @@ return {
 			desc = "Toggle Zoom",
 		},
 		{
-			"<leader>gB",
+			"<leader>gg",
 			function()
-				Snacks.gitbrowse()
+				Snacks.lazygit()
 			end,
-			desc = "Git Browse",
-			mode = { "n", "v" },
+			desc = "Lazygit",
 		},
 		{
 			"<c-/>",
@@ -303,6 +369,13 @@ return {
 				Snacks.terminal()
 			end,
 			desc = "Toggle Terminal",
+		},
+		{
+			"<c-_>",
+			function()
+				Snacks.terminal()
+			end,
+			desc = "which_key_ignore",
 		},
 		{
 			"]]",
@@ -319,6 +392,24 @@ return {
 			end,
 			desc = "Prev Reference",
 			mode = { "n", "t" },
+		},
+		{
+			"<leader>N",
+			desc = "Neovim News",
+			function()
+				Snacks.win({
+					file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
+					width = 0.6,
+					height = 0.6,
+					wo = {
+						spell = false,
+						wrap = false,
+						signcolumn = "yes",
+						statuscolumn = " ",
+						conceallevel = 3,
+					},
+				})
+			end,
 		},
 	},
 	init = function()
@@ -349,7 +440,9 @@ return {
 					.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
 					:map("<leader>tc")
 				Snacks.toggle.treesitter():map("<leader>tT")
-				Snacks.toggle.inlay_hints():map("<leader>th")
+				Snacks.toggle
+					.option("background", { off = "light", on = "dark", name = "Dark Background" })
+					:map("<leader>tb")
 				Snacks.toggle.indent():map("<leader>tg")
 				Snacks.toggle.dim():map("<leader>tD")
 			end,

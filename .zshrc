@@ -25,17 +25,17 @@ zinit for \
   zdharma-continuum/history-search-multi-word
 
 zinit for \
-    wait lucid \
-    atload"zicompinit; zicdreplay" \
-  zdharma-continuum/fast-syntax-highlighting
-
-zinit for \
     as"command" \
     from"gh-r" \
     atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
     atpull"%atclone" \
     src"init.zsh" \
   starship/starship
+
+zinit for \
+    wait lucid \
+    atload"zicompinit; zicdreplay" \
+  zdharma-continuum/fast-syntax-highlighting
 
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -70,13 +70,12 @@ eval_if_exists() {
 
 typeset -A aliases
 aliases=(
-    [ls]="eza"
-    [cat]="bat" 
+    [ls]="eza --icons=always"
+    [cat]="bat"
     [grep]="rg"
     [find]="fd"
     [lg]="lazygit"
     [ld]="lazydocker"
-    [lo]="lazyollama"
     [top]="htop"
     [ping]="prettyping"
     [cht]="cht.sh"
@@ -96,9 +95,7 @@ export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.config/emacs/bin"
-export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin:$PATH"
 . /usr/share/nvm/init-nvm.sh
 
 eval_if_exists fzf --zsh
 eval_if_exists zoxide init --cmd cd zsh
-eval "$(tmuxifier init -)"

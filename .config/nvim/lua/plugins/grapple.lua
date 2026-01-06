@@ -1,8 +1,10 @@
 return {
 	"cbochs/grapple.nvim",
+	dependencies = { "nvim-mini/mini.nvim" },
 	opts = {
-		icons = false,
-		status = false,
+		scope = "git",
+		icons = true,
+		status = true,
 	},
 	keys = {
 		{ "<leader>H", "<cmd>Grapple toggle<cr>", desc = "Tag a file" },

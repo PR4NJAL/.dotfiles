@@ -1,5 +1,6 @@
 return {
 	"akinsho/bufferline.nvim",
+	dependencies = { "nvim-mini/mini.nvim" },
 	event = "VeryLazy",
 	keys = {
 		{ "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle Pin" },
@@ -23,6 +24,10 @@ return {
 			end,
 			diagnostics = "nvim_lsp",
 			always_show_bufferline = false,
+			diagnostics_indicator = function(count, level, _, _)
+				local icon = level:match("error") and " " or " "
+				return " " .. icon .. count
+			end,
 			offsets = {
 				{
 					highlight = "Directory",
@@ -34,4 +39,14 @@ return {
 			},
 		},
 	},
+	config = function(_, opts)
+		require("bufferline").setup(opts)
+		vim.api.nvim_create_autocmd({ "BufAdd", "BufDelete" }, {
+			callback = function()
+				vim.schedule(function()
+					pcall(nvim_bufferline)
+				end)
+			end,
+		})
+	end,
 }

@@ -1,39 +1,55 @@
 return {
 	"neovim/nvim-lspconfig",
-	lazy = false,
 	dependencies = {
 		{ "mason-org/mason.nvim", opts = {} },
 		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-    {
-      "nvimdev/lspsaga.nvim",
-      opts = {
-        symbol_in_winbar = {
-          enable = false,
-        }
-      },
-    },
-		{
-			"j-hui/fidget.nvim",
-			opts = {
-				progress = {
-					suppress_on_insert = false,
-					display = {
-						done_ttl = 3,
-						progress_ttl = math.huge,
-						done_icon = "✓",
-					},
-				},
-				notification = {
-					window = {
-						winblend = 0,
-					},
-				},
-			},
-		},
 		"saghen/blink.cmp",
 	},
 	config = function()
+		vim.api.nvim_create_autocmd("LspProgress", {
+			---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
+			callback = function(ev)
+				local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+				vim.notify(vim.lsp.status(), "info", {
+					id = "lsp_progress",
+					title = "LSP Progress",
+					opts = function(notif)
+						notif.icon = ev.data.params.value.kind == "end" and " "
+							or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+					end,
+				})
+			end,
+		})
+		vim.api.nvim_create_autocmd("LspAttach", {
+			group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+			callback = function(event)
+				require("mini.cursorword").setup()
+				local map = function(keys, func, desc, mode)
+					mode = mode or "n"
+					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+				end
+				map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
+				map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+				map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+				---@param client vim.lsp.Client
+				---@param method vim.lsp.protocol.Method
+				---@param bufnr? integer
+				---@return boolean
+				local function client_supports_method(client, method, bufnr)
+					return client:supports_method(method, bufnr)
+				end
+				local client = vim.lsp.get_client_by_id(event.data.client_id)
+				if
+					client
+					and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
+				then
+					map("<leader>th", function()
+						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+					end, "[T]oggle Inlay [H]ints")
+				end
+			end,
+		})
 		vim.diagnostic.config({
 			severity_sort = true,
 			float = { border = "rounded", source = "if_many" },
@@ -62,45 +78,35 @@ return {
 		})
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		local servers = {
-			pyright = {},
-			rust_analyzer = {},
 			clangd = {},
-			nil_ls = {},
-			hyprls = {},
-			html = {},
-			cssls = {},
 			lua_ls = {
-				capabilities = {},
 				settings = {
 					Lua = {
 						completion = {
 							callSnippet = "Replace",
 						},
-						diagnostics = { disable = { "missing-fields" } },
 					},
 				},
 			},
 		}
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
-			"nixfmt",
-			"prettier",
+      "prettier",
+			"stylua",
+			"clang-format",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 		require("mason-lspconfig").setup({
 			ensure_installed = {},
-			automatic_installation = true,
+			automatic_installation = false,
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
 					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-					vim.lsp.config(server_name)
-					vim.lsp.enable(server_name)
+					vim.lsp.config(server)
+					vim.lsp.enable(server)
 				end,
 			},
 		})
 	end,
-  keys = {
-    {"<leader>o", "<CMD>Lspsaga outline<CR>", desc = "Toggle outline"},
-  },
 }

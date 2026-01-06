@@ -1,5 +1,6 @@
 return {
 	"folke/trouble.nvim",
+	dependencies = { "nvim-mini/mini.nvim" },
 	opts = {},
 	cmd = "Trouble",
 	keys = {
@@ -24,12 +25,12 @@ return {
 			desc = "LSP Definitions / references / ... (Trouble)",
 		},
 		{
-			"<leader>xl",
+			"<leader>xL",
 			"<cmd>Trouble loclist toggle<cr>",
 			desc = "Location List (Trouble)",
 		},
 		{
-			"<leader>xq",
+			"<leader>xQ",
 			"<cmd>Trouble qflist toggle<cr>",
 			desc = "Quickfix List (Trouble)",
 		},
