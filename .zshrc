@@ -80,6 +80,7 @@ aliases=(
     [ping]="prettyping"
     [cht]="cht.sh"
     [vim]="nvim"
+    [vi]="nvim"
 )
 
 for alias_name alias_value in ${(kv)aliases}; do

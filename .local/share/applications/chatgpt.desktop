@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=ChatGPT
-Exec=chromium --app=https://chat.openai.com
+Exec=uwsm app -- chromium --app=https://chat.openai.com
 Icon=chatgpt
 Type=Application
 Categories=Utility;
