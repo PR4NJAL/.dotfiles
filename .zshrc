@@ -76,11 +76,14 @@ aliases=(
     [find]="fd"
     [lg]="lazygit"
     [ld]="lazydocker"
+    # [ld]="lazyollama" #HACK: Can be installed with homebrew
     [top]="htop"
     [ping]="prettyping"
     [cht]="cht.sh"
     [vim]="nvim"
     [vi]="nvim"
+    #TODO:Add rsync alias for cp
+    #TODO:Other alt
 )
 
 for alias_name alias_value in ${(kv)aliases}; do
@@ -96,6 +99,7 @@ export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.config/emacs/bin"
+export PATH="$PATH:/home/paddy/.local/bin" #NOTE: Fixes slow tldr issue FIXME: Maybe??
 . /usr/share/nvm/init-nvm.sh
 
 eval_if_exists fzf --zsh
