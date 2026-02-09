@@ -2,9 +2,7 @@ return {
 	"saghen/blink.cmp",
 	version = "1.*",
 	dependencies = {
-		"folke/lazydev.nvim",
 		"nvim-mini/mini.nvim",
-		"rafamadriz/friendly-snippets",
 	},
 	config = function()
 		require("mini.snippets").setup({
@@ -24,12 +22,13 @@ return {
 				documentation = { auto_show = true, auto_show_delay_ms = 500 },
 			},
 			sources = {
-				default = { "lsp", "path", "snippets", "lazydev", "omni" },
-				providers = {
-					lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
-				},
+				-- default = { "lsp", "path", "snippets", "lazydev", "omni" },
+				default = { "lsp", "path", "snippets", "omni" },
+				-- providers = {
+				-- 	lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
+				-- },
 			},
-			fuzzy = { implementation = "lua" },
+			fuzzy = { implementation = "prefer_rust" },
 			signature = { enabled = true },
 		})
 	end,

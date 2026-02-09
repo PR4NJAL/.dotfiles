@@ -1,3 +1,3 @@
-*.json
+.config/nvim/*.json
 *.png
 .config/tmux/plugins

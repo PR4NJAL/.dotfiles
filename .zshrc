@@ -68,22 +68,33 @@ eval_if_exists() {
     fi
 }
 
+cpr() {
+  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@"
+}
+mvr() {
+  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@"
+}
+
 typeset -A aliases
 aliases=(
     [ls]="eza --icons=always"
     [cat]="bat"
     [grep]="rg"
     [find]="fd"
+    [dd]="dd_rescue"
+    [df]="duf"
+    [du]="dust"
+    [sed]="sad"
+    [rsync]="~/.local/scripts/rsync.sh"
+    [mv]="mvr"
+    [cp]="cpr"
     [lg]="lazygit"
     [ld]="lazydocker"
-    # [ld]="lazyollama" #HACK: Can be installed with homebrew
+    [ld]="lazyollama"
     [top]="htop"
     [ping]="prettyping"
-    [cht]="cht.sh"
     [vim]="nvim"
     [vi]="nvim"
-    #TODO:Add rsync alias for cp
-    #TODO:Other alt
 )
 
 for alias_name alias_value in ${(kv)aliases}; do
@@ -99,8 +110,8 @@ export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.config/emacs/bin"
-export PATH="$PATH:/home/paddy/.local/bin" #NOTE: Fixes slow tldr issue FIXME: Maybe??
 . /usr/share/nvm/init-nvm.sh
 
 eval_if_exists fzf --zsh
 eval_if_exists zoxide init --cmd cd zsh
+eval_if_exists try init

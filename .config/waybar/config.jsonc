@@ -3,14 +3,9 @@
   "layer": "top",
   "position": "top",
   "height": 30,
-  "width": 1280,
   "spacing": 4,
-  "modules-left": [
-    "hyprland/workspaces"
-  ],
-  "modules-center": [
-    "clock"
-  ],
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
   "modules-right": [
     "pulseaudio",
     "bluetooth",
@@ -72,12 +67,12 @@
     "format-icons": {
       "default": ["", "", " "]
     },
-    "on-click": "hyprpwcenter"
+      // "on-click": "hyprpwcenter", #NOTE: This isn't as good as pavucontrol
+      "on-click": "pavucontrol"
   },
   "custom/power": {
-    "format" : "⏻ ",
+    "format": "⏻ ",
     "tooltip": false,
     "on-click": "wlogout"
   }
-}
 }

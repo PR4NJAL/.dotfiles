@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Figma
+Exec=uwsm app -- chromium --app=https://www.figma.com
+Icon=figma
+Type=Application
+Categories=Utility;

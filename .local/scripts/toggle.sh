@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
-current_layout=$(hyprctl getoption general:layout | awk -F': ' '/str:/ {print $2}')
+current=$(hyprctl getoption general:layout | awk 'NR==1{print $2}')
 
-if [[ "$current_layout" == "scrolling" ]]; then
-    new_layout="dwindle"
-else
-    new_layout="scrolling"
-fi
-
-hyprctl "keyword general:layout $new_layout"
+case "$current" in
+    dwindle)
+        hyprctl keyword general:layout master
+        ;;
+    master)
+        hyprctl keyword general:layout scrolling
+        ;;
+    scrolling)
+        hyprctl keyword general:layout dwindle
+        ;;
+esac

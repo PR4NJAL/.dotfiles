@@ -78,6 +78,10 @@ return {
 		})
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		local servers = {
+			pyright = {},
+			hyprls = {},
+			nil_ls = {},
+			cssls = {},
 			clangd = {},
 			lua_ls = {
 				settings = {
@@ -91,9 +95,12 @@ return {
 		}
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
-      "prettier",
+			"black",
+			"isort",
+			"prettier",
 			"stylua",
 			"clang-format",
+			"nixfmt",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 		require("mason-lspconfig").setup({

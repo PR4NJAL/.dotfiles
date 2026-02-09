@@ -1,0 +1,25 @@
+source = ./monitors.conf
+source = ./exec.conf
+source = ./permissions.conf
+source = ./general.conf
+source = ./decoration.conf
+source = ./animations.conf
+source = ./windowrules.conf
+source = ./layers.conf
+source = ./layouts.conf
+source = ./misc.conf
+source = ./input.conf
+source = ./group.conf
+source = ./gestures.conf
+source = ./device.conf
+source = ./binds.conf
+source = ./xwayland.conf
+source = ./plugin.conf
+
+# TODO
+# Create rule if more than 2 windows are on a workspace then only does scrolling activate, otherwise master/dwindle is followed
+#NOTE Latest workspace layout and new modes (monocle and scrolling) in upcoming Hypland update renders this useless
+
+# TODO hyprshutdown addition in wlogout
+
+# TODO Notification dismissal
